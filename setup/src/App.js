@@ -42,7 +42,7 @@ function App() {
   // if loading is false (data has been fetched), display the Tours Component
   return (
     <main>
-      <Tours />
+      <Tours tours={tours} />
     </main>
   );
 }
