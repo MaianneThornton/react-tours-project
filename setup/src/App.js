@@ -9,8 +9,14 @@ function App() {
   const [loading, setLoading] = useState(true);
   // Default state will display an empty array
   const [tours, setTours] = useState([]);
-  // if fetching tours always setLoading to true
+  // if the id matches remove the tour if not place it in a new array called newTours 
+  const removeTour = (id) => {
+    const newTours = tours.filter((tour) => tour.id !== id);
+    setTours(newTours);
+  }
+
   const fetchTours = async () => {
+    // if fetching tours always setLoading to true
     setLoading(true);
 
     try {
@@ -42,7 +48,7 @@ function App() {
   // if loading is false (data has been fetched), display the Tours Component
   return (
     <main>
-      <Tours tours={tours} />
+      <Tours tours={tours} removeTour={removeTour} />
     </main>
   );
 }

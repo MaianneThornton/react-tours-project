@@ -1,7 +1,7 @@
 import React from 'react';
 import Tour from './Tour';
 // destructuring tours prop
-const Tours = ({ tours }) => {
+const Tours = ({ tours, removeTour }) => {
   return (
     <section>
       <div className="title">
@@ -12,7 +12,7 @@ const Tours = ({ tours }) => {
         {/* returns an array of objects from the info pulled from the API */}
         {tours.map((tour) => {
           // returns the tour id as well as spreads the rest of the data (id, name, info, image & price from the API)
-          return <Tour key={tour.id} {...tour}></Tour>
+          return <Tour key={tour.id} {...tour} removeTour={removeTour}></Tour>
         }
         )}
       </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 // destructuring the tour variable information which is pulled from the API
-const Tour = ({ id, image, info, price, name }) => {
+const Tour = ({ id, image, info, price, name, removeTour }) => {
   // sets the readMore state to a default of false
   const [readMore, setReadMore] = useState(false)
   // displays the image, price, and name, info and button on the page with styling
@@ -20,7 +20,7 @@ const Tour = ({ id, image, info, price, name }) => {
       {readMore?'show less':'read more'}
       </button>
       </p>
-      <button className="delete-btn">not interested</button>
+      <button className="delete-btn" onClick={()=> removeTour(id)}>not interested</button>
     </footer>
   </article>
   );
